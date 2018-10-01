@@ -95,6 +95,12 @@ MACRO ( ADD_AND_INSTALL_LIBRARY
 
   ADD_LIBRARY ( ${target_name} ${target_type} ${sources} )
 
+  INCLUDE ( GenerateExportHeader )
+  GENERATE_EXPORT_HEADER( ${target_name}
+    BASE_NAME MMG5
+    EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/include/libmmgexport.h )
+  SET_TARGET_PROPERTIES ( ${target_name} PROPERTIES CXX_VISIBILITY_PRESET hidden )
+
   IF ( CMAKE_VERSION VERSION_LESS 2.8.12 )
     INCLUDE_DIRECTORIES ( ${target_name} PUBLIC
       ${COMMON_BINARY_DIR} ${COMMON_SOURCE_DIR} ${PROJECT_BINARY_DIR}/include )
