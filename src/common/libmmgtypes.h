@@ -27,6 +27,7 @@
 #include <stdint.h>
 #include <stdarg.h>
 
+#include "libmmgexport.h"
 
 #ifndef _LIBMMGTYPES_H
 #define _LIBMMGTYPES_H
@@ -189,7 +190,7 @@ enum MMG5_entities {
  * edge... ).
  *
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   double   hmin; /*!< minimal size for edges */
   double   hmax; /*!< maximal size for edges */
   double   hausd; /*!< Hausdorff value */
@@ -202,7 +203,7 @@ typedef struct {
  * \brief Structure to store points of a MMG mesh.
  * \todo What to do with n[3], try to remove s.
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   double   c[3]; /*!< Coordinates of point */
   double   n[3]; /*!< Normal or Tangent for mmgs and Tangent (if needed) for mmg3d */
   int      ref; /*!< Reference of point */
@@ -221,7 +222,7 @@ typedef MMG5_Point * MMG5_pPoint;
  * \struct MMG5_xPoint
  * \brief Structure to store surface points of a MMG mesh.
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   double   n1[3],n2[3]; /*!< Normals at boundary vertex;
                           n1!=n2 if the vertex belong to a ridge */
 } MMG5_xPoint;
@@ -231,7 +232,7 @@ typedef MMG5_xPoint * MMG5_pxPoint;
  * \struct MMG5_Edge
  * \brief Structure to store edges of a MMG mesh.
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   int      a,b; /*!< Extremities of the edge */
   int      ref; /*!< Reference of the edge */
   int      base; /*!< 2Donly: used to store the tria+ tria edge indices
@@ -258,7 +259,7 @@ typedef MMG5_Edge * MMG5_pEdge;
  * \endverbatim
  *
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   double   qual;   /*Quality of the triangle*/
   int      v[3]; /*!< Vertices of the triangle */
   int      ref; /*!< Reference of the triangle */
@@ -292,7 +293,7 @@ typedef MMG5_Tria * MMG5_pTria;
  * \endverbatim
  *
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   int      v[4]; /*!< Vertices of the quadrangle */
   int      ref; /*!< Reference of the quadrangle */
   int      base;
@@ -327,7 +328,7 @@ typedef MMG5_Quad * MMG5_pQuad;
  * \endverbatim
  *
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   double   qual; /*!< Quality of the element */
   int      v[4]; /*!< Vertices of the tetrahedron */
   int      ref; /*!< Reference of the tetrahedron */
@@ -344,7 +345,7 @@ typedef MMG5_Tetra * MMG5_pTetra;
  * \struct MMG5_xTetra
  * \brief Structure to store the surface tetrahedra of a MMG mesh.
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   int      ref[4]; /*!< ref[i] is the reference of the opposite triangle to the
                      \f$i^{th}\f$ vertex of the tetrahedron;*/
   int      edg[6]; /*!< edg[i] contains the reference of the
@@ -388,7 +389,7 @@ typedef MMG5_xTetra * MMG5_pxTetra;
  * \endverbatim
  *
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   int      v[6]; /*!< Vertices of the prism */
   int      ref; /*!< Reference of the prism */
   int      base;
@@ -403,7 +404,7 @@ typedef MMG5_Prism * MMG5_pPrism;
  * \struct MMG5_xPrism
  * \brief Structure to store the surface prism of a MMG mesh.
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   int      ref[5]; /*!< face references: ref[0]={0,1,2}, ref[1]={3,4,5},
                     * ref[2]={0,3,4,1}, ref[3]={0,2,5,1} */
   int      edg[9]; /*!< edges references:
@@ -421,7 +422,7 @@ typedef MMG5_xPrism * MMG5_pxPrism;
  * \struc MMG5_Mat
  * \brief To store user-defined references in the mesh (useful in LS mode)
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   char dospl;
   int  ref,rin,rex;
 } MMG5_Mat;
@@ -431,7 +432,7 @@ typedef MMG5_Mat * MMG5_pMat;
  * \struct MMG5_Info
  * \brief Store input parameters of the run.
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   MMG5_pPar     par;
   double        dhd,hmin,hmax,hsiz,hgrad,hausd,min[3],max[3],delta,ls;
   int           mem,npar,npari;
@@ -452,7 +453,7 @@ typedef struct {
  * \struct MMG5_hgeom
  * \brief To store geometric edges.
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   int     a; /*!< First extremity of edge */
   int     b;  /*!< Second extremity of edge */
   int     ref; /*!< Reference of edge */
@@ -460,7 +461,7 @@ typedef struct {
   int16_t tag; /*!< tag of edge */
 } MMG5_hgeom;
 
-typedef struct {
+typedef struct MMG5_EXPORT {
   MMG5_hgeom  *geom;
   int         siz,max,nxt;
 } MMG5_HGeom;
@@ -470,7 +471,7 @@ typedef struct {
  * \brief MMG mesh structure.
  * \todo try to remove nc1;
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   long long memMax; /*!< Maximum memory available */
   long long memCur; /*!< Current memory used */
   double    gap; /*!< Gap for table reallocation */
@@ -523,7 +524,7 @@ typedef MMG5_Mesh  * MMG5_pMesh;
  * \struct MMG5_sol
  * \brief MMG Solution structure (for solution or metric).
  */
-typedef struct {
+typedef struct MMG5_EXPORT {
   int       ver; /* Version of the solution file */
   int       dim; /* Dimension of the solution file*/
   int       np; /* Number of points of the solution */

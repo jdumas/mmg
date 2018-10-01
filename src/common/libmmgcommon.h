@@ -59,7 +59,7 @@ extern "C" {
  * >   END SUBROUTINE\n
  *
  */
-void  MMG5_Init_fileNames(MMG5_pMesh mesh, MMG5_pSol sol);
+void MMG5_EXPORT MMG5_Init_fileNames(MMG5_pMesh mesh, MMG5_pSol sol);
 /**
  * \param mesh pointer toward the mesh structure.
  *
@@ -90,7 +90,7 @@ void  (_MMG5_Init_parameters)(MMG5_pMesh mesh);
  * >   END SUBROUTINE\n
  *
  */
-int  MMG5_Set_inputMeshName(MMG5_pMesh mesh, const char* meshin);
+int MMG5_EXPORT MMG5_Set_inputMeshName(MMG5_pMesh mesh, const char* meshin);
 /**
  * \param mesh pointer toward the mesh structure.
  * \param meshout name of the output mesh file.
@@ -107,7 +107,7 @@ int  MMG5_Set_inputMeshName(MMG5_pMesh mesh, const char* meshin);
  * >   END SUBROUTINE\n
  *
  */
-int  MMG5_Set_outputMeshName(MMG5_pMesh mesh, const char* meshout);
+int MMG5_EXPORT MMG5_Set_outputMeshName(MMG5_pMesh mesh, const char* meshout);
 /**
  * \param mesh pointer toward the mesh structure.
  * \param sol pointer toward the sol structure.
@@ -125,7 +125,7 @@ int  MMG5_Set_outputMeshName(MMG5_pMesh mesh, const char* meshout);
  * >   END SUBROUTINE\n
  *
  */
-int  MMG5_Set_inputSolName(MMG5_pMesh mesh,MMG5_pSol sol, const char* solin);
+int MMG5_EXPORT MMG5_Set_inputSolName(MMG5_pMesh mesh,MMG5_pSol sol, const char* solin);
 /**
  * \param mesh pointer toward the mesh structure.
  * \param sol pointer toward the sol structure.
@@ -143,10 +143,10 @@ int  MMG5_Set_inputSolName(MMG5_pMesh mesh,MMG5_pSol sol, const char* solin);
  * >   END SUBROUTINE\n
  *
  */
-int  MMG5_Set_outputSolName(MMG5_pMesh mesh,MMG5_pSol sol, const char* solout);
+int MMG5_EXPORT MMG5_Set_outputSolName(MMG5_pMesh mesh,MMG5_pSol sol, const char* solout);
 
 /* deallocations */
-void MMG5_Free_structures(MMG5_pMesh mesh,MMG5_pSol sol);
+void MMG5_EXPORT MMG5_Free_structures(MMG5_pMesh mesh,MMG5_pSol sol);
 
 /**
  * \param mesh pointer toward the mesh structure.
@@ -160,7 +160,7 @@ void MMG5_Free_structures(MMG5_pMesh mesh,MMG5_pSol sol);
  * >   END SUBROUTINE\n
  *
  */
-void MMG5_mmgFree_names(MMG5_pMesh mesh, MMG5_pSol met);
+void MMG5_EXPORT MMG5_mmgFree_names(MMG5_pMesh mesh, MMG5_pSol met);
 
 /**
  * \param mesh pointer toward the mesh structure.
@@ -174,7 +174,7 @@ void MMG5_mmgFree_names(MMG5_pMesh mesh, MMG5_pSol met);
  * \Remark not for extern users.
  *
  */
-extern int MMG5_Set_defaultTruncatureSizes(MMG5_pMesh mesh,char sethmin,char sethmax);
+extern int MMG5_EXPORT MMG5_Set_defaultTruncatureSizes(MMG5_pMesh mesh,char sethmin,char sethmax);
 
 /**
  * \param mesh pointer toward the mesh structure.
@@ -187,7 +187,7 @@ extern int MMG5_Set_defaultTruncatureSizes(MMG5_pMesh mesh,char sethmin,char set
  * Fill hmin and hamx if they are not setted by the user.
  *
  */
-int MMG5_Compute_constantSize(MMG5_pMesh mesh,MMG5_pSol met,double *hsize);
+int MMG5_EXPORT MMG5_Compute_constantSize(MMG5_pMesh mesh,MMG5_pSol met,double *hsize);
 
 #ifdef __cplusplus
 }
